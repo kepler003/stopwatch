@@ -1,0 +1,8 @@
+
+.main {
+  width: 100%;
+  min-height: 100vh;
+  background-color: hsl(0, 0%, 10%);
+  background: radial-gradient(circle, hsl(0, 0%, 20%) 0%, hsl(0, 0%, 10%) 75%);
+}
+
