@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Readex+Pro&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script defer src="./icons/js/all.js"></script>
   <script src="script.js" defer></script>
 </head>
 <body>
@@ -17,10 +18,11 @@
       <h1 class="watch__heading">Stop watch</h1>
       <p class="watch__time watch__time--current">00:00:00</p>
       <nav class="watch__controls">
-        <button class="watch__btn watch__btn--start">S</button>
-        <button class="watch__btn watch__btn--start">X</button>
-        <button class="watch__btn watch__btn--start">M</button>
-        <button class="watch__btn watch__btn--start">R</button>
+        <button class="watch__btn watch__btn--start"> <i class="fas fa-play"></i> </button>
+        <button class="watch__btn watch__btn--start"> <i class="fas fa-pause"></i> </button>
+        <br class="watch__controls-divider">
+        <button class="watch__btn watch__btn--start"> <i class="fas fa-flag-checkered"></i> </button>
+        <button class="watch__btn watch__btn--start"> <i class="fas fa-stop"></i> </button>
       </nav>
       <ul class="watch__marks">
         <li class="watch__time watch__time--mark">00:02:59</li>
