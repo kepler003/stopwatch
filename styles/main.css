@@ -49,6 +49,14 @@
   background-color: hsla(0, 0%, 100%, .1);
   border: 2px solid hsla(0, 0%, 100%, .2);
   border-radius: 50%;
+  transition: box-shadow 150ms ease-in-out,
+              background-color 150ms ease-in-out;
+}
+
+.watch__btn:hover {
+  cursor: pointer;
+  background-color: hsla(0, 0%, 100%, .2);
+  box-shadow: 0 0.2rem 1.2rem hsla(0, 0%, 100%, .05);
 }
 
 .watch__marks {
