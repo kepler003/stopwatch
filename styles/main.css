@@ -9,7 +9,7 @@
   background: radial-gradient(circle, hsl(0, 0%, 20%) 0%, hsl(0, 0%, 10%) 75%);
 }
 
-.watch {
+.stopwatch {
   min-width: 300px;
   margin: 1.6rem;
   padding: 2.4rem;
@@ -19,27 +19,27 @@
   color: hsla(0, 0%, 100%, .9);
 }
 
-.watch__heading {
+.stopwatch__heading {
   text-align: center;
   font-size: 2.4rem;
   color: hsla(0, 0%, 100%, .75);
 }
 
-.watch__time {
+.stopwatch__time {
   text-align: center;
 }
 
-.watch__time--current {
+.stopwatch__time--current {
   margin-top: 2.4rem;
   font-size: 4.8rem;
 }
 
-.watch__controls {
+.stopwatch__controls {
   margin-top: 2.4rem;
   text-align: center;
 }
 
-.watch__btn {
+.stopwatch__btn {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -53,13 +53,13 @@
               background-color 150ms ease-in-out;
 }
 
-.watch__btn:hover {
+.stopwatch__btn:hover {
   cursor: pointer;
   background-color: hsla(0, 0%, 100%, .2);
   box-shadow: 0 0.2rem 1.2rem hsla(0, 0%, 100%, .05);
 }
 
-.watch__marks {
+.stopwatch__marks {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -68,18 +68,18 @@
   margin-top: 2.4rem;
 }
 
-.watch__time--mark {
+.stopwatch__time--mark {
   margin-top: 0.8rem;
 }
 
-.watch__time--mark::marker {
+.stopwatch__time--mark::marker {
   color: hsla(0, 0%, 100%, .4);
 }
 
 
 @media only screen and (min-width: 568px) {
 
-  .watch__controls-divider {
+  .stopwatch__controls-divider {
     display: none;
   }
 }
