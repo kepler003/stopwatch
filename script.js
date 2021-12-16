@@ -6,18 +6,22 @@ class Stopwatch {
     this.startTime = null;
     this.curentTime = null;
     this.interval = null;
-    // this.start();
   }
 
-  // start() {
-  //   this.startTime = Date.now();
-  //   setInterval(() => {
-  //     this.currentTime = Date.now();
-  //     this.renderTime(this.getTimeFromMS(this.currentTime - this.startTime));
-  //   }, 10);
-  // }
+  start() {
+    this.startTime = Date.now();
+    this.interval = setInterval(() => {
+      this.currentTime = Date.now();
+      this.renderTime(this.getTimeFromMS(this.currentTime - this.startTime));
+    }, 10);
+  }
 
-  renderTime({ minutes, seconds, centiseconds }) {
+  stop() {
+    clearInterval(this.interval);
+    this.renderTime();
+  }
+
+  renderTime({ minutes = 0, seconds = 0, centiseconds = 0 } = {}) {
     if (centiseconds < 10) centiseconds = '0' + centiseconds;
     if (seconds < 10)      seconds = '0' + seconds;
     if (minutes < 10)      minutes = '0' + minutes;
