@@ -51,6 +51,23 @@
   border-radius: 50%;
 }
 
+.watch__marks {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: auto;
+  margin: 0 auto;
+  margin-top: 2.4rem;
+}
+
+.watch__time--mark {
+  margin-top: 0.8rem;
+}
+
+.watch__time--mark::marker {
+  color: hsla(0, 0%, 100%, .4);
+}
+
 
 @media only screen and (min-width: 568px) {
 
