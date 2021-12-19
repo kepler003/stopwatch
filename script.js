@@ -13,7 +13,7 @@ class Stopwatch {
     this.interval = null;
 
     this.startBtn.addEventListener('click', () => this.start());
-    this.resetBtn.addEventListener('click', () => this.stop())
+    this.resetBtn.addEventListener('click', () => this.reset())
   }
 
   start() {
@@ -25,7 +25,7 @@ class Stopwatch {
     }, 10);
   }
 
-  stop() {
+  reset() {
     this.startTime = null;
     this.currentTime = null;
     clearInterval(this.interval);
