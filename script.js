@@ -36,9 +36,9 @@ class Stopwatch {
   }
 
   reset() {
-    this.elapsedTime = null;
     clearInterval(this.interval);
     this.interval = null;
+    this.elapsedTime = null;
     this.renderTime();
     this.removeAllMarks();
   }
@@ -58,10 +58,11 @@ class Stopwatch {
   }
   
   getTimeFromMS(ms) {
-    const centiseconds = Math.floor(Math.floor(ms / 10) % 100);
-    const seconds = Math.floor(Math.floor(ms / 1000) % 60);
-    const minutes = Math.floor(Math.floor(ms / 60000) % 60);
-    return { centiseconds, seconds, minutes };
+    return {
+      centiseconds: Math.floor(Math.floor(ms / 10) % 100),
+      seconds:      Math.floor(Math.floor(ms / 1000) % 60),
+      minutes:      Math.floor(Math.floor(ms / 60000) % 60)
+    }
   }
 
   prepareTime(time) {
