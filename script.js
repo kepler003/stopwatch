@@ -7,6 +7,7 @@ class Stopwatch {
     this.stopBtn = this.stopwatch.querySelector('.stopwatch__btn--stop');
     this.resetBtn = this.stopwatch.querySelector('.stopwatch__btn--reset');
     this.markBtn = this.stopwatch.querySelector('.stopwatch__btn--mark');
+    this.marks = this.stopwatch.querySelector('.stopwatch__marks');
 
     this.elapsedTime = null;
     this.interval = null;
@@ -14,6 +15,7 @@ class Stopwatch {
     this.startBtn.addEventListener('click', () => this.start());
     this.stopBtn.addEventListener('click', () => this.stop());
     this.resetBtn.addEventListener('click', () => this.reset());
+    this.markBtn.addEventListener('click', () => this.mark());
   }
 
   start() {
@@ -36,6 +38,15 @@ class Stopwatch {
     clearInterval(this.interval);
     this.interval = null;
     this.renderTime();
+  }
+
+  mark() {
+    let { minutes, seconds, centiseconds } = this.getTimeFromMS(this.elapsedTime);
+    if (centiseconds < 10) centiseconds = '0' + centiseconds;
+    if (seconds < 10)      seconds = '0' + seconds;
+    if (minutes < 10)      minutes = '0' + minutes;
+    const li = `<li class="stopwatch__time stopwatch__time--mark">${minutes}:${seconds}:${centiseconds}</li>`;
+    this.marks.insertAdjacentHTML('afterbegin', li);
   }
   
   getTimeFromMS(ms) {
