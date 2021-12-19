@@ -4,9 +4,9 @@ class Stopwatch {
     this.stopwatch = elem;
     this.clock = this.stopwatch.querySelector('.stopwatch__time--current');
     this.startBtn = this.stopwatch.querySelector('.stopwatch__btn--start');
-    this.pauseBtn = this.stopwatch.querySelector('.stopwatch__btn--pause');
-    this.markBtn = this.stopwatch.querySelector('.stopwatch__btn--mark');
+    this.stopBtn = this.stopwatch.querySelector('.stopwatch__btn--stop');
     this.resetBtn = this.stopwatch.querySelector('.stopwatch__btn--reset');
+    this.markBtn = this.stopwatch.querySelector('.stopwatch__btn--mark');
 
     this.elapsedTime = null;
     this.interval = null;
