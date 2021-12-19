@@ -12,12 +12,13 @@ class Stopwatch {
     this.interval = null;
 
     this.startBtn.addEventListener('click', () => this.start());
-    this.resetBtn.addEventListener('click', () => this.reset())
+    this.stopBtn.addEventListener('click', () => this.stop());
+    this.resetBtn.addEventListener('click', () => this.reset());
   }
 
   start() {
-    if (this.elapsedTime) return;
-    const startTime = Date.now();
+    if (this.interval) return;
+    const startTime = this.elapsedTime ? Date.now() - this.elapsedTime : Date.now();
     this.interval = setInterval(() => {
       const currentTime = Date.now();
       this.elapsedTime = currentTime - startTime;
@@ -25,9 +26,15 @@ class Stopwatch {
     }, 10);
   }
 
+  stop() {
+    clearInterval(this.interval);
+    this.interval = null;
+  }
+
   reset() {
     this.elapsedTime = null;
     clearInterval(this.interval);
+    this.interval = null;
     this.renderTime();
   }
   
