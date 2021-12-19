@@ -18,6 +18,8 @@ class Stopwatch {
     this.markBtn.addEventListener('click', () => this.mark());
   }
 
+  // Main functions
+
   start() {
     if (this.interval) return;
     const startTime = this.elapsedTime ? Date.now() - this.elapsedTime : Date.now();
@@ -42,13 +44,14 @@ class Stopwatch {
   }
 
   mark() {
-    let { minutes, seconds, centiseconds } = this.getTimeFromMS(this.elapsedTime);
-    if (centiseconds < 10) centiseconds = '0' + centiseconds;
-    if (seconds < 10)      seconds = '0' + seconds;
-    if (minutes < 10)      minutes = '0' + minutes;
+    const { minutes, seconds, centiseconds } = this.prepareTime(
+      this.getTimeFromMS(this.elapsedTime)
+    );
     const li = `<li class="stopwatch__time stopwatch__time--mark">${minutes}:${seconds}:${centiseconds}</li>`;
     this.marks.insertAdjacentHTML('afterbegin', li);
   }
+
+  // Utility functions
 
   removeAllMarks() {
     this.marks.innerHTML = '';
@@ -58,17 +61,18 @@ class Stopwatch {
     const centiseconds = Math.floor(Math.floor(ms / 10) % 100);
     const seconds = Math.floor(Math.floor(ms / 1000) % 60);
     const minutes = Math.floor(Math.floor(ms / 60000) % 60);
-    return {
-      centiseconds,
-      seconds,
-      minutes
-    }
+    return { centiseconds, seconds, minutes };
   }
 
-  renderTime({ minutes = 0, seconds = 0, centiseconds = 0 } = {}) {
-    if (centiseconds < 10) centiseconds = '0' + centiseconds;
-    if (seconds < 10)      seconds = '0' + seconds;
-    if (minutes < 10)      minutes = '0' + minutes;
+  prepareTime(time) {
+    if (time.centiseconds < 10) time.centiseconds = '0' + time.centiseconds;
+    if (time.seconds < 10)      time.seconds = '0' + time.seconds;
+    if (time.minutes < 10)      time.minutes = '0' + time.minutes;
+    return time;
+  }
+
+  renderTime(time = { minutes: 0, seconds: 0, centiseconds: 0 }) {
+    const { minutes, seconds, centiseconds } = this.prepareTime(time);
     this.clock.textContent = `${minutes}:${seconds}:${centiseconds}`
   }
 }
