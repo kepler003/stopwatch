@@ -38,6 +38,7 @@ class Stopwatch {
     clearInterval(this.interval);
     this.interval = null;
     this.renderTime();
+    this.removeAllMarks();
   }
 
   mark() {
@@ -47,6 +48,10 @@ class Stopwatch {
     if (minutes < 10)      minutes = '0' + minutes;
     const li = `<li class="stopwatch__time stopwatch__time--mark">${minutes}:${seconds}:${centiseconds}</li>`;
     this.marks.insertAdjacentHTML('afterbegin', li);
+  }
+
+  removeAllMarks() {
+    this.marks.innerHTML = '';
   }
   
   getTimeFromMS(ms) {
