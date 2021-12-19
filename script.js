@@ -2,20 +2,20 @@
 class Stopwatch {
   constructor(elem) {
     this.stopwatch = elem;
-    this.clock = this.stopwatch.querySelector('.stopwatch__time--current');
+    this.clock =    this.stopwatch.querySelector('.stopwatch__time--current');
     this.startBtn = this.stopwatch.querySelector('.stopwatch__btn--start');
-    this.stopBtn = this.stopwatch.querySelector('.stopwatch__btn--stop');
+    this.stopBtn =  this.stopwatch.querySelector('.stopwatch__btn--stop');
     this.resetBtn = this.stopwatch.querySelector('.stopwatch__btn--reset');
-    this.markBtn = this.stopwatch.querySelector('.stopwatch__btn--mark');
-    this.marks = this.stopwatch.querySelector('.stopwatch__marks');
+    this.markBtn =  this.stopwatch.querySelector('.stopwatch__btn--mark');
+    this.marks =    this.stopwatch.querySelector('.stopwatch__marks');
 
     this.elapsedTime = null;
     this.interval = null;
 
     this.startBtn.addEventListener('click', () => this.start());
-    this.stopBtn.addEventListener('click', () => this.stop());
+    this.stopBtn.addEventListener('click',  () => this.stop());
     this.resetBtn.addEventListener('click', () => this.reset());
-    this.markBtn.addEventListener('click', () => this.mark());
+    this.markBtn.addEventListener('click',  () => this.mark());
   }
 
   // Main functions
