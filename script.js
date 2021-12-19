@@ -8,8 +8,7 @@ class Stopwatch {
     this.markBtn = this.stopwatch.querySelector('.stopwatch__btn--mark');
     this.resetBtn = this.stopwatch.querySelector('.stopwatch__btn--reset');
 
-    this.startTime = null;
-    this.curentTime = null;
+    this.elapsedTime = null;
     this.interval = null;
 
     this.startBtn.addEventListener('click', () => this.start());
@@ -17,17 +16,17 @@ class Stopwatch {
   }
 
   start() {
-    if (this.startTime) return;
-    this.startTime = Date.now();
+    if (this.elapsedTime) return;
+    const startTime = Date.now();
     this.interval = setInterval(() => {
-      this.currentTime = Date.now();
-      this.renderTime(this.getTimeFromMS(this.currentTime - this.startTime));
+      const currentTime = Date.now();
+      this.elapsedTime = currentTime - startTime;
+      this.renderTime(this.getTimeFromMS(this.elapsedTime));
     }, 10);
   }
 
   reset() {
-    this.startTime = null;
-    this.currentTime = null;
+    this.elapsedTime = null;
     clearInterval(this.interval);
     this.renderTime();
   }
